@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "npx serve .",
     "start": "npx serve .",
-    "build": "echo 'Build completed - Static site ready for deployment'",
     "deploy": "vercel --prod"
   },
   "keywords": [
