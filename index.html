@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💕 Happy Valentine's Day My Love 💕</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Pacifico&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="cursor">
+      <div class="cursor-heart">💕</div>
+    </div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <!-- Sparkles -->
+    <div class="sparkles" id="sparkles"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="preloader-content">
+        <div class="love-loader">
+          <svg viewBox="0 0 100 100" class="heart-svg">
+            <path
+              class="heart-path"
+              d="M50,88.9C25.5,67.5,10,53.6,10,35.8C10,20.6,22.4,10,35.8,10c9.1,0,14.2,5.3,14.2,5.3S55.1,10,64.2,10C77.6,10,90,20.6,90,35.8C90,53.6,74.5,67.5,50,88.9z"
+            />
+          </svg>
+        </div>
+        <p class="preloader-text">Loading Our Love Story...</p>
+        <div class="preloader-progress">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Welcome Screen with 3D Effect -->
+    <div class="welcome-screen" id="welcomeScreen">
+      <div class="welcome-bg-animation">
+        <div class="bg-heart bg-heart-1"></div>
+        <div class="bg-heart bg-heart-2"></div>
+        <div class="bg-heart bg-heart-3"></div>
+        <div class="bg-heart bg-heart-4"></div>
+        <div class="bg-heart bg-heart-5"></div>
+      </div>
+      <div class="welcome-content">
+        <div class="welcome-hearts">
+          <i class="fas fa-heart heart1"></i>
+          <i class="fas fa-heart heart2"></i>
+          <i class="fas fa-heart heart3"></i>
+        </div>
+        <h1 class="welcome-title glitch" data-text="For My Love">
+          For My Love
+        </h1>
+        <p class="welcome-subtitle typewriter" id="typewriter"></p>
+        <div class="envelope-3d" id="envelope3d">
+          <div class="envelope-wrapper">
+            <div class="envelope-back"></div>
+            <div class="envelope-front">
+              <div class="envelope-flap"></div>
+            </div>
+            <div class="letter-3d">
+              <div class="letter-content">
+                <i class="fas fa-heart beating-heart"></i>
+                <span>I Love You</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="open-btn magnetic-btn" id="openBtn">
+          <span class="btn-text">Open My Heart</span>
+          <span class="btn-icon"><i class="fas fa-heart"></i></span>
+          <div class="btn-particles"></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Page Transition -->
+    <div class="page-transition" id="pageTransition">
+      <div class="transition-heart">
+        <i class="fas fa-heart"></i>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+      <!-- Hero Section with Parallax -->
+      <section class="hero-section" id="heroSection">
+        <div class="parallax-bg" id="parallaxBg">
+          <div class="parallax-layer layer-1"></div>
+          <div class="parallax-layer layer-2"></div>
+          <div class="parallax-layer layer-3"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="rose-petals" id="rosePetals"></div>
+        <div class="hero-content">
+          <div class="hero-image-container tilt-card" id="tiltCard">
+            <div class="image-frame golden-frame morphing-border">
+              <img
+                src="HappyValentine.jpg"
+                alt="Happy Valentine"
+                class="hero-image"
+              />
+              <div class="frame-glow"></div>
+              <div class="image-shimmer"></div>
+            </div>
+            <div class="hearts-burst">
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="floating-elements">
+              <span class="float-emoji">💕</span>
+              <span class="float-emoji">✨</span>
+              <span class="float-emoji">💖</span>
+              <span class="float-emoji">🌹</span>
+            </div>
+          </div>
+          <div class="hero-text">
+            <h1 class="hero-title">
+              <span class="title-line reveal-text" data-delay="0">Happy</span>
+              <span class="title-line highlight reveal-text" data-delay="200"
+                >Valentine's Day</span
+              >
+              <span class="title-line reveal-text" data-delay="400"
+                >My Love</span
+              >
+            </h1>
+            <p class="hero-message fade-in-up">
+              Every moment with you is a beautiful memory that I treasure
+              forever in my heart 💕
+            </p>
+            <div class="countdown-container" id="countdownContainer">
+              <h3 class="countdown-title">💕 Our Love Counter 💕</h3>
+              <div class="countdown">
+                <div class="countdown-item">
+                  <span class="countdown-value flip-card" id="days">000</span>
+                  <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                  <span class="countdown-value flip-card" id="hours">00</span>
+                  <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                  <span class="countdown-value flip-card" id="minutes">00</span>
+                  <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                  <span class="countdown-value flip-card" id="seconds">00</span>
+                  <span class="countdown-label">Seconds</span>
+                </div>
+              </div>
+            </div>
+            <div class="scroll-indicator bounce">
+              <span>Scroll to see our memories</span>
+              <div class="mouse">
+                <div class="wheel"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Love Meter -->
+      <section class="love-meter-section">
+        <div class="love-meter-container">
+          <h2 class="section-title glow-text">
+            <i class="fas fa-heart"></i>
+            My Love For You
+            <i class="fas fa-heart"></i>
+          </h2>
+          <div class="love-meter">
+            <div class="meter-fill" id="meterFill">
+              <span class="meter-text">∞</span>
+            </div>
+            <div class="meter-hearts">
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
+              <i class="fas fa-heart"></i>
+            </div>
+          </div>
+          <p class="meter-message">Unmeasurable & Infinite 💕</p>
+        </div>
+      </section>
+
+      <!-- Love Quote Carousel -->
+      <section class="quote-section">
+        <div class="quote-carousel" id="quoteCarousel">
+          <div class="quote-slide active">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="quote-text">
+              In all the world, there is no heart for me like yours. In all the
+              world, there is no love for you like mine.
+            </p>
+            <i class="fas fa-quote-right quote-icon"></i>
+          </div>
+          <div class="quote-slide">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="quote-text">
+              You are my today and all of my tomorrows. Every love story is
+              beautiful, but ours is my favorite.
+            </p>
+            <i class="fas fa-quote-right quote-icon"></i>
+          </div>
+          <div class="quote-slide">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="quote-text">
+              I saw that you were perfect, and so I loved you. Then I saw that
+              you were not perfect and I loved you even more.
+            </p>
+            <i class="fas fa-quote-right quote-icon"></i>
+          </div>
+          <div class="quote-slide">
+            <i class="fas fa-quote-left quote-icon"></i>
+            <p class="quote-text">
+              The best thing to hold onto in life is each other. You're my
+              favorite notification.
+            </p>
+            <i class="fas fa-quote-right quote-icon"></i>
+          </div>
+        </div>
+        <div class="quote-nav">
+          <button class="quote-nav-btn prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="quote-dots" id="quoteDots"></div>
+          <button class="quote-nav-btn next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- 3D Flip Gallery -->
+      <section class="memories-section" id="memoriesSection">
+        <div class="section-header">
+          <h2 class="section-title split-text">
+            <i class="fas fa-camera-retro"></i>
+            Our Beautiful Memories
+            <i class="fas fa-heart"></i>
+          </h2>
+          <p class="section-subtitle">
+            Click on photos to flip & reveal messages
+          </p>
+        </div>
+
+        <div class="gallery-3d" id="galleryContainer">
+          <!-- Gallery items will be dynamically added -->
+        </div>
+      </section>
+
+      <!-- Timeline Section -->
+      <section class="timeline-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-clock"></i>
+            Our Love Timeline
+            <i class="fas fa-heart"></i>
+          </h2>
+        </div>
+        <div class="timeline" id="timeline">
+          <div class="timeline-item left">
+            <div class="timeline-content glass-card">
+              <div class="timeline-icon"><i class="fas fa-heart"></i></div>
+              <h3>The Beginning</h3>
+              <p>
+                When our eyes first met and my heart knew you were the one 💕
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content glass-card">
+              <div class="timeline-icon"><i class="fas fa-star"></i></div>
+              <h3>First Date</h3>
+              <p>That magical day when time stopped just for us ✨</p>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content glass-card">
+              <div class="timeline-icon"><i class="fas fa-gem"></i></div>
+              <h3>Special Moments</h3>
+              <p>
+                Every laugh, every smile, every memory we created together 💖
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content glass-card">
+              <div class="timeline-icon"><i class="fas fa-infinity"></i></div>
+              <h3>Forever & Always</h3>
+              <p>
+                Our love story continues, getting more beautiful each day 🌹
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Special Memories 2024 Section -->
+      <section class="memories24-section" id="memories24Section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-star"></i>
+            Valentine's Memories 2024
+            <i class="fas fa-star"></i>
+          </h2>
+          <p class="section-subtitle">Last year's precious moments together</p>
+        </div>
+
+        <div class="memories24-slider" id="memories24Gallery">
+          <!-- Special memories will be added here -->
+        </div>
+        <div class="slider-controls">
+          <button class="slider-btn prev-btn" id="prevBtn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="slider-btn next-btn" id="nextBtn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- Video Section -->
+      <section class="video-section" id="videoSection">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-video"></i>
+            Our Special Videos
+            <i class="fas fa-heart"></i>
+          </h2>
+          <p class="section-subtitle">Relive our beautiful moments</p>
+        </div>
+
+        <div class="video-gallery" id="videoGallery">
+          <!-- Videos will be added here -->
+        </div>
+      </section>
+
+      <!-- Interactive Love Letter -->
+      <section class="letter-section">
+        <div class="love-letter-3d">
+          <div class="letter-envelope" id="letterEnvelope">
+            <div class="envelope-top"></div>
+            <div class="envelope-bottom"></div>
+            <div class="letter-paper" id="letterPaper">
+              <div class="letter-header">
+                <i class="fas fa-heart"></i>
+                <h3>My Dearest Love</h3>
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="letter-body">
+                <p class="letter-text" id="letterText"></p>
+                <p class="signature">
+                  Forever Yours,<br /><span>❤️ With All My Love ❤️</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <button class="read-letter-btn" id="readLetterBtn">
+            <i class="fas fa-envelope-open-text"></i>
+            <span>Read My Letter</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Reasons I Love You -->
+      <section class="reasons-section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-heart"></i>
+            Reasons I Love You
+            <i class="fas fa-heart"></i>
+          </h2>
+        </div>
+        <div class="reasons-container">
+          <div class="reason-card glass-card">
+            <div class="reason-icon">😊</div>
+            <h4>Your Smile</h4>
+            <p>Your smile lights up my entire world</p>
+          </div>
+          <div class="reason-card glass-card">
+            <div class="reason-icon">💝</div>
+            <h4>Your Heart</h4>
+            <p>The kindness in your heart is beautiful</p>
+          </div>
+          <div class="reason-card glass-card">
+            <div class="reason-icon">✨</div>
+            <h4>Your Soul</h4>
+            <p>Your soul connects with mine perfectly</p>
+          </div>
+          <div class="reason-card glass-card">
+            <div class="reason-icon">🌟</div>
+            <h4>Your Eyes</h4>
+            <p>I get lost in your beautiful eyes</p>
+          </div>
+          <div class="reason-card glass-card">
+            <div class="reason-icon">🎵</div>
+            <h4>Your Voice</h4>
+            <p>Your voice is my favorite sound</p>
+          </div>
+          <div class="reason-card glass-card">
+            <div class="reason-icon">🤗</div>
+            <h4>Your Hugs</h4>
+            <p>Your hugs feel like home to me</p>
+          </div>
+          <div class="reason-card glass-card">
+            <div class="reason-icon">💕</div>
+            <h4>Your Love</h4>
+            <p>Your love makes me feel complete</p>
+          </div>
+          <div class="reason-card glass-card">
+            <div class="reason-icon">😂</div>
+            <h4>Your Laughter</h4>
+            <p>Your laughter is the sweetest melody</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final Section with Fireworks -->
+      <section class="final-section" id="finalSection">
+        <canvas id="fireworksCanvas"></canvas>
+        <div class="final-content">
+          <div class="infinite-hearts">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-infinity"></i>
+            <i class="fas fa-heart"></i>
+          </div>
+          <h2 class="final-title neon-text">I Love You</h2>
+          <p class="final-message">Today, Tomorrow, and Forever</p>
+          <div class="heart-beat">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <button class="fireworks-btn" id="fireworksBtn">
+            <i class="fas fa-magic"></i>
+            <span>Celebrate Our Love</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Image Modal with Ken Burns Effect -->
+    <div class="modal" id="imageModal">
+      <div class="modal-content">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <div class="modal-image-container">
+          <img src="" alt="" class="modal-image ken-burns" id="modalImage" />
+        </div>
+        <p class="modal-caption" id="modalCaption"></p>
+        <div class="modal-hearts">
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-heart"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Side Navigation -->
+    <nav class="side-nav" id="sideNav">
+      <a href="#heroSection" class="nav-dot active" data-section="hero"
+        ><span>Hero</span></a
+      >
+      <a href="#memoriesSection" class="nav-dot" data-section="memories"
+        ><span>Memories</span></a
+      >
+      <a href="#memories24Section" class="nav-dot" data-section="memories24"
+        ><span>2024</span></a
+      >
+      <a href="#videoSection" class="nav-dot" data-section="videos"
+        ><span>Videos</span></a
+      >
+      <a href="#finalSection" class="nav-dot" data-section="final"
+        ><span>Final</span></a
+      >
+    </nav>
+
+    <!-- Music Toggle with Visualizer -->
+    <div class="music-toggle" id="musicToggle">
+      <div class="music-bars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <i class="fas fa-music"></i>
+    </div>
+
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <audio id="bgMusic" loop>
+      <!-- <source src="romantic-music.mp3" type="audio/mpeg" /> -->
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
