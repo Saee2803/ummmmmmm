@@ -1,7 +1,6 @@
 {
   "version": 2,
   "public": true,
-  "functions": {},
   "routes": [
     {
       "src": "/(.*\\.(css|js|jpg|jpeg|png|gif|webp|mp4|svg|ico|woff|woff2|ttf|eot))",
